@@ -1,0 +1,46 @@
+<form action="/records" method="POST">
+  <div class="container mt-5 px-5 py-3 input-container" style="max-width: 500px; ">
+    <div class="row">
+      <div class="my-2 col-3 text-right font-weight-bold">
+        所有欄位都是必填
+      </div>
+      <div class="mt-2 col-7 ">
+        <h5 class="text-center font-weight-bold">請輸入你的支出</h5>
+      </div>
+
+    </div>
+    <div class="row">
+      <h5 class="my-4 col-3 text-right font-weight-bold">名稱 * :</h5>
+      <div class="my-4 col-9 ">
+        <input class="form-control" type="text" placeholder="開銷名稱" name='name'>
+      </div>
+
+      <h5 class="mb-4 col-3 text-right font-weight-bold">日期 * :</h5>
+      <div class="mb-4 col-9 ">
+        <input class="calendar form-control" type="date" name="date" class="calendar" placeholder="YYYY/MM/DD"
+          value="{{date}}" required>
+        <input type="hidden" class="date-timestamp" name="unixTimestamp" value="">
+      </div>
+
+      <h5 class="mb-2 col-3 text-right font-weight-bold">類別 * :</h5>
+      <div class="mb-2 col-9 ">
+        <div class="form-group">
+          <select class="form-control" id="exampleFormControlSelect2" name="category">
+            <option selected value="default">Select</option>
+            <option value="家居物業">家居物業</option>
+            <option value="交通出行">交通出行</option>
+            <option value="休閒娛樂">休閒娛樂</option>
+            <option value="餐飲食品">餐飲食品</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+      </div>
+
+      <h5 class="mb-1 col-3 text-right font-weight-bold">金額 * :</h5>
+      <div class="mb-1 col-9 ">
+        <input class="form-control" type="number" placeholder="金額不得小於零" name='amount' required>
+      </div>
+
+      <button class="my-3 mx-auto btn btn-dark mx-auto border-dark px-4 font-weight-bold" type="submit">新增支出</button>
+    </div>
+</form>

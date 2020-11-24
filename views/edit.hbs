@@ -1,0 +1,46 @@
+{{!-- new --}}
+<form action="/records/{{record._id}}/edit" method="POST">
+  <div class="container mt-5 px-5 py-3 input-container" style="max-width: 500px; ">
+    <div class="row">
+      <div class="my-2 col-3 text-right font-weight-bold">
+        * 必填欄位
+      </div>
+      <div class="mt-2 col-7 ">
+        <h5 class="text-center font-weight-bold">請修改你的支出</h5>
+      </div>
+
+    </div>
+    <div class="row">
+      <h5 class="my-4 col-3 text-right font-weight-bold">名稱 * :</h5>
+      <div class="my-4 col-9 ">
+        <input type="text" name="name" placeholder="開銷名稱" value="{{record.name}}" class="form-control" required>
+      </div>
+
+      <h5 class="mb-4 col-3 text-right font-weight-bold">日期 * :</h5>
+      <div class="mb-4 col-9 ">
+        <input class="calendar form-control" type="date" name="date" placeholder="YYYY/MM/DD" value="{{record.date}}"
+          required>
+        <input type="hidden" class="date-timestamp" name="unixTimestamp" value=""> </div>
+
+      <h5 class="mb-2 col-3 text-right font-weight-bold">類別 * :</h5>
+      <div class="mb-2 col-9 ">
+        <div class="form-group">
+          <select class="form-control" name="category">
+            <option value="default">Select</option>
+            <option value="家居物業" {{#if category0}} selected {{/if}}>家居物業</option>
+            <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
+            <option value="休閒娛樂" {{#if category2}} selected {{/if}}>休閒娛樂</option>
+            <option value="餐飲食品" {{#if category3}} selected {{/if}}>餐飲食品</option>
+            <option value="其他" {{#if category4}} selected {{/if}}>其他</option>
+          </select>
+        </div>
+      </div>
+
+      <h5 class="mb-1 col-3 text-right font-weight-bold">金額 * :</h5>
+      <div class="mb-1 col-9 ">
+        <input type="text" name="amount" value="{{record.amount}}" class="form-control" required>
+      </div>
+
+      <button class="my-3 mx-auto btn btn-dark mx-auto border-dark px-4 font-weight-bold" type="submit">送出修改</button>
+    </div>
+</form>
