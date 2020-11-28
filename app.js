@@ -33,7 +33,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   Record.find()
     .lean()
-    .then(records => res.render('index', { records }))
+    .then((records) => {
+      let totalAmount = 0;
+      for (let record of records) {
+        totalAmount += record.amount;
+      }
+      res.render('index', { records, totalAmount });
+    })
     .catch(error => console.error(error))
 })
 
